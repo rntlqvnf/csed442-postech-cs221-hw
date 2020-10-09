@@ -13,7 +13,7 @@ def create_chain_csp(n):
     csp = util.CSP()
     # Problem 0a
     # BEGIN_YOUR_ANSWER (our solution is 4 lines of code, but don't worry if you deviate from this)
-    for i, v in enumerate(variables):
+    for v in variables:
         csp.add_variable(v, domain)
     for j in range(0,n-1):
         csp.add_binary_factor(variables[j], variables[j+1], lambda x, y: x!=y)
@@ -37,7 +37,13 @@ def create_nqueens_csp(n = 8):
     csp = util.CSP()
     # Problem 1a
     # BEGIN_YOUR_ANSWER (our solution is 13 lines of code, but don't worry if you deviate from this)
-    raise NotImplementedError  # remove this line before writing code
+    domain = range(n)
+    variables = ['x%d'%i for i in range(1, n+1)]
+    for v in variables:
+        csp.add_variable(v, domain)
+    for i in range(n):
+        for j in range(i+1, n):
+            csp.add_binary_factor(variables[i], variables[j], lambda colNum1, colNum2: colNum1!=colNum2 and abs(i-j)!=abs(colNum1-colNum2))
     # END_YOUR_ANSWER
     return csp
 
@@ -237,7 +243,7 @@ class BacktrackingSearch():
             #       assignment, a variable, and a proposed value to this variable
             # Hint: for ties, choose the variable with lowest index in self.csp.variables
             # BEGIN_YOUR_ANSWER (our solution is 11 lines of code, but don't worry if you deviate from this)
-            raise NotImplementedError  # remove this line before writing code
+            
             # END_YOUR_ANSWER
 
     def arc_consistency_check(self, var):
