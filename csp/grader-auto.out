@@ -5,12 +5,12 @@ maxTotalPoints: 2
 messages: []
 mode: auto
 parts:
-- description: Basic test for AC-3 with n-queens CSP
+- description: Basic test for get_sum_variable
   extraCredit: false
   maxPoints: 2
   maxSeconds: 1
   messages: []
-  name: 1c-1-basic
+  name: 2a-1-basic
   points: 2
   seconds: 0
 totalPoints: 2

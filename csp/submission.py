@@ -330,7 +330,27 @@ def get_sum_variable(csp, name, variables, maxSum):
         iff the assignment of |variables| sums to |n|.
     """
     # BEGIN_YOUR_ANSWER (our solution is 28 lines of code, but don't worry if you deviate from this)
-    raise NotImplementedError  # remove this line before writing code
+    result = ('sum', name, 'result')
+
+    if len(variables) == 0:
+        csp.add_variable(result,[0])
+        return result
+    
+    prevConstraintNode = None
+    for i, var in enumerate(variables):
+        currentConstraintNode = ('sum', name, i)
+        if i != 0:
+            domain = list(set([(prev[1], prev[1] + assignedVal) for prev in csp.values[prevConstraintNode] for assignedVal in csp.values[var] if prev[1] + assignedVal <= maxSum]))
+            csp.add_variable(currentConstraintNode, domain)
+            csp.add_binary_factor(currentConstraintNode, prevConstraintNode, lambda cur, prev: cur[0] == prev[1])
+        else:
+            domain = [(0, firstValue) for firstValue in csp.values[var]]
+            csp.add_variable(currentConstraintNode, domain)
+        csp.add_binary_factor(currentConstraintNode, var, lambda cur, assignedVal: cur[1] == (cur[0] + assignedVal))
+        prevConstraintNode = currentConstraintNode
+    csp.add_variable(result, [lastDomainVal[1] for lastDomainVal in domain])
+    csp.add_binary_factor(result, currentConstraintNode, lambda res, prev: res==prev[1])
+    return result
     # END_YOUR_ANSWER
 
 def create_lightbulb_csp(buttonSets, numButtons):
