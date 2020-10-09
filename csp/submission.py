@@ -275,7 +275,34 @@ class BacktrackingSearch():
         #   (self.csp.binaryFactors[var1][var2] returns a nested dict of all assignments)
 
         # BEGIN_YOUR_ANSWER (our solution is 19 lines of code, but don't worry if you deviate from this)
-        raise NotImplementedError  # remove this line before writing code
+        def remove_inconsistent_values(tail, head):
+            newDomain = []
+            isRemoved = False
+            for tailVal in self.domains[tail]:
+                isArcConsistent = False
+                isNodeConsistent = False
+                for headVal in self.domains[head]:
+                    if self.csp.binaryFactors[head][tail][headVal][tailVal] != 0:
+                        isArcConsistent = True
+                        break
+                if (
+                    self.csp.unaryFactors[tail] is None or \
+                    self.csp.unaryFactors[tail][tailVal] != 0
+                ):
+                    isNodeConsistent = True
+                if isArcConsistent and isNodeConsistent:
+                    newDomain.append(tailVal)
+                else:
+                    isRemoved = True
+            self.domains[tail] = newDomain
+            return isRemoved
+        
+        queue = [var]
+        while queue:
+            head = queue.pop(0)
+            for tail in self.csp.get_neighbor_vars(head):
+                if (remove_inconsistent_values(tail, head)):
+                    queue.append(tail)
         # END_YOUR_ANSWER
 
 
