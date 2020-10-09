@@ -49,33 +49,15 @@ parts:
   extraCredit: false
   maxPoints: 2
   maxSeconds: 1
-  messages:
-  - 'Exception thrown: <class ''NotImplementedError''> -- '
-  - "  File \"grader.py\", line 81, in test1b_1\n    mcvSolver.solve(submission.create_nqueens_csp(8),\
-    \ mcv = True)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 148, in solve\n    self.backtrack({},\
-    \ 0, 1)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 188, in backtrack\n    var = self.get_unassigned_variable(assignment)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 247, in get_unassigned_variable\n\
-    \    raise NotImplementedError  # remove this line before writing code\n"
+  messages: []
   name: 1b-1-basic
-  points: 0
+  points: 2
   seconds: 0
 - description: Test MCV with different CSPs
   extraCredit: false
   maxPoints: 1
   maxSeconds: 1
-  messages:
-  - 'Exception thrown: <class ''NotImplementedError''> -- '
-  - "  File \"grader.py\", line 91, in test1b_2\n    pred = get_csp_result_with_mcv(submission.BacktrackingSearch)\n"
-  - "  File \"grader.py\", line 90, in get_csp_result_with_mcv\n    return get_csp_result(util.create_map_coloring_csp(),\
-    \ BacktrackingSearch, mcv=True)\n"
-  - "  File \"grader.py\", line 42, in get_csp_result\n    solver.solve(csp, **kargs)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 148, in solve\n    self.backtrack({},\
-    \ 0, 1)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 188, in backtrack\n    var = self.get_unassigned_variable(assignment)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 247, in get_unassigned_variable\n\
-    \    raise NotImplementedError  # remove this line before writing code\n"
+  messages: []
   name: 1b-2-hidden
   points: 0
   seconds: 0
@@ -83,17 +65,7 @@ parts:
   extraCredit: false
   maxPoints: 1
   maxSeconds: 1
-  messages:
-  - 'Exception thrown: <class ''NotImplementedError''> -- '
-  - "  File \"grader.py\", line 105, in test1b_3\n    pred = get_csp_result_with_mcv(submission.BacktrackingSearch)\n"
-  - "  File \"grader.py\", line 104, in get_csp_result_with_mcv\n    return get_csp_result(create_nqueens_csp(8),\
-    \ BacktrackingSearch, mcv=True)\n"
-  - "  File \"grader.py\", line 42, in get_csp_result\n    solver.solve(csp, **kargs)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 148, in solve\n    self.backtrack({},\
-    \ 0, 1)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 188, in backtrack\n    var = self.get_unassigned_variable(assignment)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 247, in get_unassigned_variable\n\
-    \    raise NotImplementedError  # remove this line before writing code\n"
+  messages: []
   name: 1b-3-hidden
   points: 0
   seconds: 0
@@ -105,10 +77,10 @@ parts:
   - 'Exception thrown: <class ''NotImplementedError''> -- '
   - "  File \"grader.py\", line 117, in test1c_1\n    acSolver.solve(submission.create_nqueens_csp(8),\
     \ ac3 = True)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 148, in solve\n    self.backtrack({},\
+  - "  File \"D:\\ai\\csp\\submission.py\", line 147, in solve\n    self.backtrack({},\
     \ 0, 1)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 217, in backtrack\n    self.arc_consistency_check(var)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 271, in arc_consistency_check\n \
+  - "  File \"D:\\ai\\csp\\submission.py\", line 216, in backtrack\n    self.arc_consistency_check(var)\n"
+  - "  File \"D:\\ai\\csp\\submission.py\", line 278, in arc_consistency_check\n \
     \   raise NotImplementedError  # remove this line before writing code\n"
   name: 1c-1-basic
   points: 0
@@ -131,11 +103,11 @@ parts:
   - "  File \"grader.py\", line 141, in get_csp_result_with_mcv_ac3\n    return get_csp_result(create_nqueens_csp(8),\
     \ BacktrackingSearch, mcv=True, ac3=True)\n"
   - "  File \"grader.py\", line 42, in get_csp_result\n    solver.solve(csp, **kargs)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 148, in solve\n    self.backtrack({},\
+  - "  File \"D:\\ai\\csp\\submission.py\", line 147, in solve\n    self.backtrack({},\
     \ 0, 1)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 188, in backtrack\n    var = self.get_unassigned_variable(assignment)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 247, in get_unassigned_variable\n\
-    \    raise NotImplementedError  # remove this line before writing code\n"
+  - "  File \"D:\\ai\\csp\\submission.py\", line 216, in backtrack\n    self.arc_consistency_check(var)\n"
+  - "  File \"D:\\ai\\csp\\submission.py\", line 278, in arc_consistency_check\n \
+    \   raise NotImplementedError  # remove this line before writing code\n"
   name: 1c-3-hidden
   points: 0
   seconds: 0
@@ -147,7 +119,7 @@ parts:
   - 'Exception thrown: <class ''NotImplementedError''> -- '
   - "  File \"grader.py\", line 158, in test2a_1\n    sumVar = submission.get_sum_variable(csp,\
     \ 'sum-up-to-15', ['A', 'B', 'C'], 15)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 299, in get_sum_variable\n    raise\
+  - "  File \"D:\\ai\\csp\\submission.py\", line 306, in get_sum_variable\n    raise\
     \ NotImplementedError  # remove this line before writing code\n"
   name: 2a-1-basic
   points: 0
@@ -161,7 +133,7 @@ parts:
   - "  File \"grader.py\", line 191, in test2a_2\n    pred = get_result(submission.get_sum_variable)\n"
   - "  File \"grader.py\", line 177, in get_result\n    sumVar = get_sum_variable(csp,\
     \ 'zero', [], 15)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 299, in get_sum_variable\n    raise\
+  - "  File \"D:\\ai\\csp\\submission.py\", line 306, in get_sum_variable\n    raise\
     \ NotImplementedError  # remove this line before writing code\n"
   name: 2a-2-hidden
   points: 0
@@ -175,7 +147,7 @@ parts:
   - "  File \"grader.py\", line 216, in test2a_3\n    pred = get_result(submission.get_sum_variable)\n"
   - "  File \"grader.py\", line 204, in get_result\n    sumVar = submission.get_sum_variable(csp,\
     \ 'sum-up-to-7', ['A', 'B', 'C'], 7)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 299, in get_sum_variable\n    raise\
+  - "  File \"D:\\ai\\csp\\submission.py\", line 306, in get_sum_variable\n    raise\
     \ NotImplementedError  # remove this line before writing code\n"
   name: 2a-3-hidden
   points: 0
@@ -188,7 +160,7 @@ parts:
   - 'Exception thrown: <class ''NotImplementedError''> -- '
   - "  File \"grader.py\", line 232, in test2b_1\n    csp = submission.create_lightbulb_csp(buttonSets,\
     \ numButtons)\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 322, in create_lightbulb_csp\n  \
+  - "  File \"D:\\ai\\csp\\submission.py\", line 329, in create_lightbulb_csp\n  \
     \  raise NotImplementedError  # remove this line before writing code\n"
   name: 2b-1-basic
   points: 0
@@ -201,9 +173,9 @@ parts:
   - 'Exception thrown: <class ''NotImplementedError''> -- '
   - "  File \"grader.py\", line 252, in test2b_2\n    pred = get_csp_result(submission.create_lightbulb_csp(buttonSets,\
     \ numButtons))\n"
-  - "  File \"D:\\ai\\csp\\submission.py\", line 322, in create_lightbulb_csp\n  \
+  - "  File \"D:\\ai\\csp\\submission.py\", line 329, in create_lightbulb_csp\n  \
     \  raise NotImplementedError  # remove this line before writing code\n"
   name: 2b-2-hidden
   points: 0
   seconds: 0
-totalPoints: 4
+totalPoints: 6

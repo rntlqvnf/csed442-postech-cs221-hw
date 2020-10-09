@@ -243,7 +243,15 @@ class BacktrackingSearch():
             #       assignment, a variable, and a proposed value to this variable
             # Hint: for ties, choose the variable with lowest index in self.csp.variables
             # BEGIN_YOUR_ANSWER (our solution is 11 lines of code, but don't worry if you deviate from this)
-            
+            mcvToReturn = None
+            minCount = float('inf')
+            for var in self.csp.variables:
+                if var not in assignment:
+                    consistentValCount = len(list(filter(lambda val: self.get_delta_weight(assignment, var, val)>0, self.domains[var])))
+                    if consistentValCount < minCount:
+                        minCount = consistentValCount
+                        mcvToReturn = var
+            return mcvToReturn
             # END_YOUR_ANSWER
 
     def arc_consistency_check(self, var):
