@@ -9,7 +9,7 @@ def create_chain_csp(n):
     # same domain for each variable
     domain = [0, 1]
     # name variables as x_1, x_2, ..., x_n
-    variables = ['x%d'%i for i in range(1, n+1)]
+    variables = ['X%d'%i for i in range(1, n+1)]
     csp = util.CSP()
     # Problem 0a
     # BEGIN_YOUR_ANSWER (our solution is 4 lines of code, but don't worry if you deviate from this)
@@ -38,7 +38,7 @@ def create_nqueens_csp(n = 8):
     # Problem 1a
     # BEGIN_YOUR_ANSWER (our solution is 13 lines of code, but don't worry if you deviate from this)
     domain = range(n)
-    variables = ['x%d'%i for i in range(1, n+1)]
+    variables = ['X%d'%i for i in range(1, n+1)]
     for v in variables:
         csp.add_variable(v, domain)
     for i in range(n):
@@ -160,7 +160,6 @@ class BacktrackingSearch():
         @param numAssigned: Number of currently assigned variables
         @param weight: The weight of the current partial assignment.
         """
-
         self.numOperations += 1
         assert weight > 0
         if numAssigned == self.csp.numVars:
@@ -373,6 +372,21 @@ def create_lightbulb_csp(buttonSets, numButtons):
 
     # Problem 2b
     # BEGIN_YOUR_ANSWER (our solution is 15 lines of code, but don't worry if you deviate from this)
-    raise NotImplementedError  # remove this line before writing code
+    
+    for i, buttonSet in enumerate(buttonSets):
+        csp.add_variable('X%d'%(i+1), buttonSet)
+    varCount = len(csp.variables)
+    for j in range(varCount):
+        for k in range(i+1, varCount):
+            var1 = csp.variables[i]
+            var2 = csp.variables[j]
+            if len(csp.domains[var1]) >= len(csp.domains[var2]):
+                for val2 in csp.domains[var2]:
+                    if val2 in csp.domain[var2]:
+                        csp.add_binary_factor(var1, var2, lambda x, y: x == val2 and y == val2)
+            else:
+                for val1 in csp.domains[var1]:
+                    if val1 in csp.domain[var1]:
+                        csp.add_binary_factor(var1, var2, lambda x, y: x == val1 and y == val1)
     # END_YOUR_ANSWER
     return csp
