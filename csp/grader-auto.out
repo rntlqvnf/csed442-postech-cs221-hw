@@ -1,10 +1,98 @@
 extraCredit: 0
 fatalError: false
 maxExtraCredit: 0
-maxTotalPoints: 2
+maxTotalPoints: 12
 messages: []
 mode: auto
 parts:
+- description: Basic test for create_chain_csp
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 0a-1-basic
+  points: 2
+  seconds: 0
+- description: Hidden test for create_chain_csp
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 0a-1-hidden
+  points: 0
+  seconds: 0
+- description: Basic test for create_nqueens_csp for n=8
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 1a-1-basic
+  points: 2
+  seconds: 0
+- description: Test create_nqueens_csp with n=3
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 1a-2-hidden
+  points: 0
+  seconds: 0
+- description: Test create_nqueens_csp with different n
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 1a-3-hidden
+  points: 0
+  seconds: 0
+- description: Basic test for MCV with n-queens CSP
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 1b-1-basic
+  points: 2
+  seconds: 0
+- description: Test MCV with different CSPs
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 1b-2-hidden
+  points: 0
+  seconds: 0
+- description: Test for MCV with n-queens CSP
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 1b-3-hidden
+  points: 0
+  seconds: 0
+- description: Basic test for AC-3 with n-queens CSP
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 1c-1-basic
+  points: 2
+  seconds: 0
+- description: Test AC-3 for map coloring CSP
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 1c-2-hidden
+  points: 0
+  seconds: 0
+- description: Test MCV+AC-3 for n-queens CSP with n=8
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 1c-3-hidden
+  points: 0
+  seconds: 0
 - description: Basic test for get_sum_variable
   extraCredit: false
   maxPoints: 2
@@ -13,4 +101,36 @@ parts:
   name: 2a-1-basic
   points: 2
   seconds: 0
-totalPoints: 2
+- description: Test get_sum_variable with empty list of variables
+  extraCredit: false
+  maxPoints: 1
+  maxSeconds: 1
+  messages: []
+  name: 2a-2-hidden
+  points: 0
+  seconds: 0
+- description: Test get_sum_variable with different variables
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 2a-3-hidden
+  points: 0
+  seconds: 0
+- description: Basic test for light-bulb problem
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 2b-1-basic
+  points: 2
+  seconds: 0
+- description: Test light-bulb problem arguments
+  extraCredit: false
+  maxPoints: 2
+  maxSeconds: 1
+  messages: []
+  name: 2b-2-hidden
+  points: 0
+  seconds: 0
+totalPoints: 12

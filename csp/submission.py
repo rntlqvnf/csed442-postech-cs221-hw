@@ -176,7 +176,7 @@ class BacktrackingSearch():
                 else:
                     self.numOptimalAssignments = 1
                 self.optimalWeight = weight
-
+                
                 self.optimalAssignment = newAssignment
                 if self.firstAssignmentNumOperations == 0:
                     self.firstAssignmentNumOperations = self.numOperations
@@ -337,7 +337,7 @@ def get_sum_variable(csp, name, variables, maxSum):
     
     prevConstraintNode = None
     for i, var in enumerate(variables):
-        currentConstraintNode = ('sum', name, i)
+        currentConstraintNode = ('sum', name, var)
         if i != 0:
             domain = list(set([(prev[1], prev[1] + assignedVal) for prev in csp.values[prevConstraintNode] for assignedVal in csp.values[var] if prev[1] + assignedVal <= maxSum]))
             csp.add_variable(currentConstraintNode, domain)
@@ -347,7 +347,7 @@ def get_sum_variable(csp, name, variables, maxSum):
             csp.add_variable(currentConstraintNode, domain)
         csp.add_binary_factor(currentConstraintNode, var, lambda cur, assignedVal: cur[1] == (cur[0] + assignedVal))
         prevConstraintNode = currentConstraintNode
-    csp.add_variable(result, [lastDomainVal[1] for lastDomainVal in domain])
+    csp.add_variable(result, list(set([lastDomainVal[1] for lastDomainVal in domain])))
     csp.add_binary_factor(result, currentConstraintNode, lambda res, prev: res==prev[1])
     return result
     # END_YOUR_ANSWER
@@ -372,21 +372,12 @@ def create_lightbulb_csp(buttonSets, numButtons):
 
     # Problem 2b
     # BEGIN_YOUR_ANSWER (our solution is 15 lines of code, but don't worry if you deviate from this)
-    
+    domain = [0, 1]
+    variables = list(range(numButtons))
+    for v in variables:
+        csp.add_variable(v, domain)
     for i, buttonSet in enumerate(buttonSets):
-        csp.add_variable('X%d'%(i+1), buttonSet)
-    varCount = len(csp.variables)
-    for j in range(varCount):
-        for k in range(i+1, varCount):
-            var1 = csp.variables[i]
-            var2 = csp.variables[j]
-            if len(csp.domains[var1]) >= len(csp.domains[var2]):
-                for val2 in csp.domains[var2]:
-                    if val2 in csp.domain[var2]:
-                        csp.add_binary_factor(var1, var2, lambda x, y: x == val2 and y == val2)
-            else:
-                for val1 in csp.domains[var1]:
-                    if val1 in csp.domain[var1]:
-                        csp.add_binary_factor(var1, var2, lambda x, y: x == val1 and y == val1)
+        sumVar = get_sum_variable(csp, 'bulb %d'%i, buttonSet, len(buttonSet))
+        csp.add_unary_factor(sumVar, lambda n: n in list(filter(lambda x: x%2==1, list(range(len(buttonSet)+1)))))
     # END_YOUR_ANSWER
     return csp
