@@ -87,7 +87,7 @@ class BlackjackMDP(util.MDP):
                     nextState = (newTotalCardValueInHand, None, newDeck)
                     reward = 0
                 
-                return (nextState, 1.0, reward)
+                return [(nextState, 1.0, reward)]
             else:
                 result = []
                 for index, card in enumerate(deckCardCounts):
@@ -186,7 +186,15 @@ class Qlearning(util.RLAlgorithm):
             return
 
         # BEGIN_YOUR_ANSWER (our solution is 8 lines of code, but don't worry if you deviate from this)
-        raise NotImplementedError  # remove this line before writing code
+        if newState == None:
+            Vopt = 0
+        else:
+            Vopt = max([self.getQ(newState, newAction) for newAction in self.actions(newState)])
+
+        Qopt = self.getQ(state,action)
+
+        for featureKey, featureValue in self.featureExtractor(state,action):
+            self.weights[featureKey] += self.getStepSize() * ((reward+self.discount*Vopt)-Qopt) * featureValue
         # END_YOUR_ANSWER
 
 
@@ -209,7 +217,15 @@ class SARSA(Qlearning):
             return
 
         # BEGIN_YOUR_ANSWER (our solution is 8 lines of code, but don't worry if you deviate from this)
-        raise NotImplementedError  # remove this line before writing code
+        if newState == None:
+            Vopt = 0
+        else:
+            Vopt = self.getQ(newState, newAction)
+
+        Qopt = self.getQ(state,action)
+
+        for featureKey, featureValue in self.featureExtractor(state,action):
+            self.weights[featureKey] += self.getStepSize() * ((reward+self.discount*Vopt)-Qopt) * featureValue
         # END_YOUR_ANSWER
 
 # Return a singleton list containing indicator feature for the (state, action)
