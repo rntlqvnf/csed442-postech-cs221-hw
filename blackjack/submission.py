@@ -249,5 +249,11 @@ def identityFeatureExtractor(state, action):
 def blackjackFeatureExtractor(state, action):
     total, nextCard, counts = state
     # BEGIN_YOUR_ANSWER (our solution is 8 lines of code, but don't worry if you deviate from this)
-    raise NotImplementedError  # remove this line before writing code
+    features = []
+    features.append(((total, action),1))
+    if counts is not None:
+        features.append(((tuple(int(bool(card)) for card in counts), action), 1))
+        for index, card in enumerate(counts):
+            features.append(((index, card, action),1))
+    return features
     # END_YOUR_ANSWER

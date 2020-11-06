@@ -66,7 +66,7 @@ parts:
   messages: []
   name: 2a-2-hidden
   points: 0
-  seconds: 0
+  seconds: 1
 - description: Basic test for incorporateFeedback() using NumberLineMDP.
   extraCredit: false
   maxPoints: 3
@@ -89,39 +89,17 @@ parts:
   extraCredit: false
   maxPoints: 3
   maxSeconds: 3
-  messages:
-  - 'Exception thrown: <class ''NotImplementedError''> -- '
-  - "  File \"grader.py\", line 238, in test_2c_1\n    rl.incorporateFeedback([(7,\
-    \ None, (0, 1)), 'Quit', 7, (7, None, None)], mdp.isEnd)\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 192, in incorporateFeedback\n\
-    \    Vopt = max([self.getQ(newState, newAction) for newAction in self.actions(newState)])\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 192, in <listcomp>\n    Vopt\
-    \ = max([self.getQ(newState, newAction) for newAction in self.actions(newState)])\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 158, in getQ\n    for f, v\
-    \ in self.featureExtractor(state, action):\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 252, in blackjackFeatureExtractor\n\
-    \    raise NotImplementedError  # remove this line before writing code\n"
+  messages: []
   name: 2c-1-basic
-  points: 0
+  points: 3
   seconds: 0
 - description: Hidden test for incorporateFeedback(). Run Qlearning on a large MDP,
     then ensure that getQ returns reasonable policy.
   extraCredit: false
   maxPoints: 2
   maxSeconds: 20
-  messages:
-  - 'Exception thrown: <class ''NotImplementedError''> -- '
-  - "  File \"grader.py\", line 259, in test_2c_2\n    util.simulate(mdp, rl, numTrials=30000)\n"
-  - "  File \"D:\\ai\\blackjack\\util.py\", line 174, in simulate\n    action = rl.getAction(state)\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 170, in getAction\n    return\
-    \ max((self.getQ(state, action), action) for action in self.actions(state))[1]\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 170, in <genexpr>\n    return\
-    \ max((self.getQ(state, action), action) for action in self.actions(state))[1]\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 158, in getQ\n    for f, v\
-    \ in self.featureExtractor(state, action):\n"
-  - "  File \"D:\\ai\\blackjack\\submission.py\", line 252, in blackjackFeatureExtractor\n\
-    \    raise NotImplementedError  # remove this line before writing code\n"
+  messages: []
   name: 2c-2-hidden
-  points: 0
-  seconds: 0
-totalPoints: 9
+  points: 2
+  seconds: 3
+totalPoints: 12
