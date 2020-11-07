@@ -130,10 +130,14 @@ class ValueIterationDP(ValueIteration):
             if state in V:
                 return V[state]
             elif mdp.isEnd(state):
-                V[state] = max(self.computeQ(mdp, V, state, action) for action in mdp.actions(state))
+                V[state] = 0
                 return V[state]
             else:
-                V[state] = max(sum(explore(newState) for newState, prob, reward in mdp.succAndProbReward(state, action)) for action in mdp.actions(state))
+                def computeQ_dp(mdp, V, state_dp, action_dp):
+                    return sum(prob * (reward + mdp.discount() * explore(newState)) \
+                            for newState, prob, reward in mdp.succAndProbReward(state_dp, action_dp))
+                
+                V[state] = max(computeQ_dp(mdp, V, state, action) for action in mdp.actions(state))
                 return V[state]
 
         explore(mdp.startState())

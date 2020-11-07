@@ -27,24 +27,18 @@ parts:
   extraCredit: false
   maxPoints: 3
   maxSeconds: 5
-  messages:
-  - Expected to be true, but got false
-  - Expected to be true, but got false
-  - Expected to be true, but got false
+  messages: []
   name: 1b-1-hidden
-  points: 0
+  points: 3
   seconds: 1
 - description: Hidden test for ValueIterationDP. Run ValueIterationDP on BlackjackMDP,
     then test if V[startState] is correct and ValueIterationDP is faster than ValueIteration.
   extraCredit: false
   maxPoints: 2
   maxSeconds: 5
-  messages:
-  - Expected to be true, but got false
-  - Expected to be true, but got false
-  - Expected to be true, but got false
+  messages: []
   name: 1b-2-hidden
-  points: 0
+  points: 2
   seconds: 1
 - description: Basic test for incorporateFeedback() using NumberLineMDP.
   extraCredit: false
@@ -79,7 +73,7 @@ parts:
   messages: []
   name: 2b-2-hidden
   points: 0
-  seconds: 1
+  seconds: 0
 - description: Basic test for blackjackFeatureExtractor.  Runs Qlearning using blackjackFeatureExtractor,
     then checks to see that Q-values are correct.
   extraCredit: false
@@ -97,5 +91,5 @@ parts:
   messages: []
   name: 2c-2-hidden
   points: 2
-  seconds: 3
+  seconds: 4
 totalPoints: 12

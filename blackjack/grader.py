@@ -108,7 +108,6 @@ def get_test_1b(multiplier):
 
             print('VI time: {} / DP time: {}'.format(util_vi_time, pred_dp_time))
             grader.requireIsTrue((abs(pred_dp - util_vi) / util_vi) < 0.00001)
-            print('VI time 1: {} / DP time 1: {}'.format(util_vi_time, pred_dp_time * multiplier))
             grader.requireIsTrue(pred_dp_time * multiplier < util_vi_time)
 
     return test_1b
