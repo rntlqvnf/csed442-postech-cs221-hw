@@ -126,7 +126,17 @@ class ValueIterationDP(ValueIteration):
         V = {}  # state -> value of state
 
         # BEGIN_YOUR_ANSWER (our solution is 13 lines of code, but don't worry if you deviate from this)
-        raise NotImplementedError  # remove this line before writing code
+        def explore(state):
+            if state in V:
+                return V[state]
+            elif mdp.isEnd(state):
+                V[state] = max(self.computeQ(mdp, V, state, action) for action in mdp.actions(state))
+                return V[state]
+            else:
+                V[state] = max(sum(explore(newState) for newState, prob, reward in mdp.succAndProbReward(state, action)) for action in mdp.actions(state))
+                return V[state]
+
+        explore(mdp.startState())
         # END_YOUR_ANSWER
 
         # Compute the optimal policy now
