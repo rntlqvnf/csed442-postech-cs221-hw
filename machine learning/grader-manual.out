@@ -1,0 +1,78 @@
+parts:
+- description: ''
+  extraCredit: false
+  maxPoints: 2
+  messages:
+  - '?'
+  name: 1a
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 2
+  messages:
+  - '?'
+  name: 1b
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 2
+  messages:
+  - '?'
+  name: 2a
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 3
+  messages:
+  - '?'
+  name: 2b
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 3
+  messages:
+  - '?'
+  name: 2c
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 3
+  messages:
+  - '?'
+  name: 2d
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 3
+  messages:
+  - '?'
+  name: 2e
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 2
+  messages:
+  - '?'
+  name: 3d
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 3
+  messages:
+  - '?'
+  name: 3f
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 2
+  messages:
+  - '?'
+  name: 4a
+  points: '?'
+- description: ''
+  extraCredit: false
+  maxPoints: 5
+  messages:
+  - '?'
+  name: 4c
+  points: '?'
