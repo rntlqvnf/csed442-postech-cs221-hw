@@ -75,23 +75,15 @@ parts:
   extraCredit: false
   maxPoints: 1
   maxSeconds: 1
-  messages:
-  - 'Exception thrown: <class ''Exception''> -- Not implemented yet'
-  - "  File \"grader.py\", line 111, in test3e0\n    grader.requireIsEqual(ans, fe(sentence))\n"
-  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 93, in extract\n\
-    \    raise Exception(\"Not implemented yet\")\n"
+  messages: []
   name: 3e-0-basic
-  points: 0
+  points: 1
   seconds: 0
 - description: test feature extraction on repeated character n-grams
   extraCredit: false
   maxPoints: 1
   maxSeconds: 1
-  messages:
-  - 'Exception thrown: <class ''Exception''> -- Not implemented yet'
-  - "  File \"grader.py\", line 119, in test3e1\n    submission_ans = submission.extractCharacterFeatures(n)(sentence)\n"
-  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 93, in extract\n\
-    \    raise Exception(\"Not implemented yet\")\n"
+  messages: []
   name: 3e-1-hidden
   points: 0
   seconds: 0
@@ -103,7 +95,7 @@ parts:
   - 'Exception thrown: <class ''Exception''> -- Not implemented yet'
   - "  File \"grader.py\", line 141, in test4b0\n    centers, assignments, totalCost\
     \ = submission.kmeans(examples, 2, maxIters=10)\n"
-  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 112, in kmeans\n\
+  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 116, in kmeans\n\
     \    raise Exception(\"Not implemented yet\")\n"
   name: 4b-0-basic
   points: 0
@@ -116,7 +108,7 @@ parts:
   - 'Exception thrown: <class ''Exception''> -- Not implemented yet'
   - "  File \"grader.py\", line 152, in test4b1\n    centers, assignments, totalCost\
     \ = submission.kmeans(examples, K, maxIters=100)\n"
-  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 112, in kmeans\n\
+  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 116, in kmeans\n\
     \    raise Exception(\"Not implemented yet\")\n"
   name: 4b-1-hidden
   points: 0
@@ -129,7 +121,7 @@ parts:
   - 'Exception thrown: <class ''Exception''> -- Not implemented yet'
   - "  File \"grader.py\", line 161, in test4b2\n    centers, assignments, totalCost\
     \ = submission.kmeans(examples, K, maxIters=100)\n"
-  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 112, in kmeans\n\
+  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 116, in kmeans\n\
     \    raise Exception(\"Not implemented yet\")\n"
   name: 4b-2-hidden
   points: 0
@@ -142,9 +134,9 @@ parts:
   - 'Exception thrown: <class ''Exception''> -- Not implemented yet'
   - "  File \"grader.py\", line 170, in test4b3\n    centers, assignments, totalCost\
     \ = submission.kmeans(examples, K, maxIters=100)\n"
-  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 112, in kmeans\n\
+  - "  File \"D:\\github\\AI_HW\\machine learning\\submission.py\", line 116, in kmeans\n\
     \    raise Exception(\"Not implemented yet\")\n"
   name: 4b-3-basic
   points: 0
   seconds: 0
-totalPoints: 7
+totalPoints: 8

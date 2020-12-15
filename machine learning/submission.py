@@ -90,7 +90,11 @@ def extractCharacterFeatures(n):
     '''
     def extract(x):
         # BEGIN_YOUR_CODE (our solution is 6 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        featureDict = collections.defaultdict(int)
+        joinedString = ''.join(x.split())
+        for i in range(0, len(joinedString) - (n-1)):
+            featureDict[joinedString[i:i+n]] += 1
+        return featureDict
         # END_YOUR_CODE
     return extract
 
