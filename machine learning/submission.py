@@ -70,7 +70,10 @@ def generateDataset(numExamples, weights):
     # y should be 1 or -1 as classified by the weight vector.
     def generateExample():
         # BEGIN_YOUR_CODE (our solution is 2 lines of code, but don't worry if you deviate from this)
-        raise Exception("Not implemented yet")
+        phi = {}
+        for feature in random.sample(list(weights),random.randint(1,len(weights))):
+            phi[feature] = random.randint(1,100)
+        y = 1 if dotProduct(phi, weights) >= 0 else -1
         # END_YOUR_CODE
         return (phi, y)
     return [generateExample() for _ in range(numExamples)]
