@@ -113,5 +113,50 @@ def kmeans(examples, K, maxIters):
             final reconstruction loss)
     '''
     # BEGIN_YOUR_CODE (our solution is 32 lines of code, but don't worry if you deviate from this)
-    raise Exception("Not implemented yet")
+    def computeNewCentroids(examples):
+        size = float(len(examples))
+        new_centroid = collections.defaultdict(float)
+        for example in examples:
+            increment(new_centroid, 1/size, example)
+        return new_centroid
+
+    def findCentroidToAssign(example, centroids, example_sqr, centroid_sqrs):
+        min_dist = 999999999
+        min_index = len(centroids) + 1
+
+        for i, centroid in enumerate(centroids):
+            centroid_sqr = centroid_sqrs[i]
+            example_centroid_sqr = dotProduct(example, centroid)
+            dist = example_sqr + centroid_sqr - 2 * example_centroid_sqr
+            if dist < min_dist:
+                min_dist = dist
+                min_index = i
+        return min_index, min_dist
+
+    dists = []
+    centroids = random.sample(examples, K)
+    assignments = [0 for i in examples]
+    example_sqrs = [dotProduct(example, example) for example in examples]
+    for it in range(maxIters):
+        dists = []
+        new_assignments = []
+
+        centroid_sqrs = [dotProduct(centroid, centroid) for centroid in centroids]
+        centriod_examples_dict = {x: [] for x in range(len(centroids))}
+
+        for i, example in enumerate(examples):
+            centroid_index, dist = findCentroidToAssign(example, centroids, example_sqrs[i], centroid_sqrs)
+            centriod_examples_dict[centroid_index].append(example)
+            new_assignments.append(centroid_index)
+            dists.append(dist)
+
+        centroids = [computeNewCentroids(examples) for examples in centriod_examples_dict.values()]
+
+        if(assignments == new_assignments):
+            assignments = new_assignments
+            break
+        else:
+            assignments = new_assignments
+            
+    return centroids, assignments, sum(dists)
     # END_YOUR_CODE
